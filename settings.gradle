@@ -1,3 +1,5 @@
 rootProject.name = 'java-gradle-projects'
 include 'contests'
+include 'contests:leetcode'
+findProject(':contests:leetcode')?.name = 'leetcode'
 
