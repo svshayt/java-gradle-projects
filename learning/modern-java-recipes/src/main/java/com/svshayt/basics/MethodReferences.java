@@ -1,4 +1,4 @@
-package com.svshayt.lambda;
+package com.svshayt.basics;
 
 import java.util.Arrays;
 import java.util.List;
@@ -6,7 +6,7 @@ import java.util.function.Consumer;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class MethodReferenceDemo {
+public class MethodReferences {
     public static void main(String[] args) {
         // Использование ссылки на метод для доступа к println
         Stream.of(3, 1, 4, 1, 5, 9)
