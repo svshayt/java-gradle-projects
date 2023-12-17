@@ -4,4 +4,5 @@ include 'contests:leetcode'
 findProject(':contests:leetcode')?.name = 'leetcode'
 include 'contests:codeforces'
 findProject(':contests:codeforces')?.name = 'codeforces'
+include 'learning'
 
