@@ -5,4 +5,6 @@ findProject(':contests:leetcode')?.name = 'leetcode'
 include 'contests:codeforces'
 findProject(':contests:codeforces')?.name = 'codeforces'
 include 'learning'
+include 'learning:modern-java-recipes'
+findProject(':learning:modern-java-recipes')?.name = 'modern-java-recipes'
 
