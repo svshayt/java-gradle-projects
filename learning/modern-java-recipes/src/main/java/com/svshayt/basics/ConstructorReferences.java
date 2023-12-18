@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class ConstructorReferences {
     public static void main(String[] args) {
@@ -30,5 +31,26 @@ public class ConstructorReferences {
                 .map(Person::new) // Создание объекта Person с помощью ссылки на конструктор
                 .collect(Collectors.toList());
         System.out.println(lambdaMethodPeople);
+
+        Person before = new Person("Grace Hopper");
+
+        List<Person> people1 = Stream.of(before)
+                .collect(Collectors.toList());
+        Person after = people1.get(0);
+
+        System.out.println(before == after); // true
+
+        before.setName("Grace Murray Hopper");
+        System.out.println("Grace Murray Hopper".equals(after.getName())); // true
+
+        List<Person> people2 = Stream.of(before)
+                .map(Person::new) // Используется копирующий конструктор
+                .collect(Collectors.toList());
+        after = people2.get(0);
+        System.out.println(before == after); // false - Объекты разные
+        System.out.println(before.equals(after)); // true - Объекты эквивалентные
+
+        before.setName("Rear Admiral Dr. Grace Murray Hopper");
+        System.out.println(before.equals(after)); // false
     }
 }
