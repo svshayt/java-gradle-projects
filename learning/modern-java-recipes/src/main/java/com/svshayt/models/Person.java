@@ -8,6 +8,9 @@ import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.util.Arrays;
+import java.util.stream.Collectors;
+
 @Getter
 @Setter
 @ToString
@@ -21,6 +24,13 @@ public class Person {
     // Копирующий конструктор класса Person
     public Person(Person p) {
         this.name = p.name;
+    }
+
+    // Этот конструктор принимает ноль или более строковых аргументов и
+    // конкатенирует их через пробел.
+    public Person(String... names) {
+        this.name = Arrays.stream(names)
+                .collect(Collectors.joining(" "));
     }
 }
 

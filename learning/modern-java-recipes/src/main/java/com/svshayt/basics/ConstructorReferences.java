@@ -52,5 +52,16 @@ public class ConstructorReferences {
 
         before.setName("Rear Admiral Dr. Grace Murray Hopper");
         System.out.println(before.equals(after)); // false
+
+        var stringResult = stringNames.stream() // Создать поток строк
+                .map(name -> name.split(" ")) // Отобразить на поток массивов строк
+                .map(Person::new) // Отобразить на поток объектов Person
+                .collect(Collectors.toList()); // Собрать в список объектов Person
+        System.out.println(stringResult);
+
+        Person[] people3 = stringNames.stream()
+                .map(Person::new)
+                .toArray(Person[]::new); // Ссылка на конструктор массива Person
+        System.out.println(Arrays.asList(people3));
     }
 }
