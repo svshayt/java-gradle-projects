@@ -1,5 +1,6 @@
 package com.svshayt.comparator_collector;
 
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -22,5 +23,13 @@ public class StreamToCollectionDemo {
                                 "The Furriers", "The Furriers") // Повторяющееся имя, в процессе преобразования во множество удаляется
                         .collect(Collectors.toSet());
         System.out.println(villains);
+
+        // Создание связного списка
+        List<String> actors =
+                Stream.of("Hank Azaria", "Janeane Garofalo", "William H. Macy",
+                                "Paul Reubens", "Ben Stiller", "Kel Mitchell", "Wes Studi")
+                        .collect(Collectors.toCollection(LinkedList::new));
+        System.out.println(actors);
     }
+
 }
