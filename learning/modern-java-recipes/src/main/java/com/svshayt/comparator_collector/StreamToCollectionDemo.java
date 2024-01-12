@@ -1,5 +1,6 @@
 package com.svshayt.comparator_collector;
 
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
@@ -30,6 +31,12 @@ public class StreamToCollectionDemo {
                                 "Paul Reubens", "Ben Stiller", "Kel Mitchell", "Wes Studi")
                         .collect(Collectors.toCollection(LinkedList::new));
         System.out.println(actors);
+
+        // Создание массива
+        String[] wannabes =
+                Stream.of("The Waffler", "Reverse Psychologist", "PMS Avenger")
+                        .toArray(String[]::new); // Ссылка на конструктор массива в качестве Supplier
+        System.out.println(Arrays.asList(wannabes));
     }
 
 }
