@@ -1,8 +1,11 @@
 package com.svshayt.comparator_collector;
 
+import com.svshayt.models.Actor;
+
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -37,6 +40,14 @@ public class StreamToCollectionDemo {
                 Stream.of("The Waffler", "Reverse Psychologist", "PMS Avenger")
                         .toArray(String[]::new); // Ссылка на конструктор массива в качестве Supplier
         System.out.println(Arrays.asList(wannabes));
+
+        // Создание отображения
+//        Set<Actor> actors = mysteryMen.getActors();
+        Set<Actor> actorsSet = Set.of(new Actor("Alex", "Manager"), new Actor("John", "Banker"));
+        Map<String, String> actorMap = actorsSet.stream()
+                .collect(Collectors.toMap(Actor::getName, Actor::getRole)); // Функции, порождающие ключи и значения
+        actorMap.forEach((key, value) ->
+                System.out.printf("%s played %s%n", key, value));
     }
 
 }
